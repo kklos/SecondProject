@@ -6,6 +6,7 @@
 
 
     <aura:registerEvent name="productSearchFormQueryEvent" type="c:EP_ProductSearchFormQuery"/>
+    <aura:registerEvent name="productWarehouseSelected" type="c:EP_ProductWarehouseSelect"/>
 
         <lightning:card title="Search products:">
 
