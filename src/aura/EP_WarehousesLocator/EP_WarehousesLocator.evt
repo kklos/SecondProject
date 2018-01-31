@@ -1,0 +1,7 @@
+<!--
+ - Created by klaud on 29.01.2018.
+ -->
+
+<aura:event type="APPLICATION" description="EP_WarehousesLocator">
+    <aura:attribute name="warehouses" type="Object" />
+</aura:event>

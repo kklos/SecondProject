@@ -1,0 +1,9 @@
+<!--
+ - Created by klaud on 27.01.2018.
+ -->
+
+<aura:event type="APPLICATION" description="EP_ProductSearchFormQuery">
+        <aura:attribute name="name" type="String"/>
+        <aura:attribute name="warehouseCity" type="String"/>
+        <aura:attribute name="code" type="String"/>
+</aura:event>

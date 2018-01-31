@@ -1,0 +1,44 @@
+<!--
+ - Created by klaud on 27.01.2018.
+ -->
+
+<aura:component controller="EP_ResultsSearchTable" description="EP_ResultsSearchTable"
+                implements="flexipage:availableForAllPageTypes">
+    <!--<aura:handler name="init" value="{! this }" action="{! c.init }"/> -->
+    <aura:attribute name="productResults" type="Object"/>
+    <aura:attribute name="resultsSearchTableColumns" type="List"/>
+    <aura:attribute name="selectedProductWarehouseId" type="String"/>
+    <aura:registerEvent name="warehouseMarkers" type="c:EP_WarehousesLocator"/>
+
+
+    <aura:handler event="c:EP_ProductSearchFormQuery" action="{!c.init}"/>
+    <aura:handler event="c:EP_ProductWarehouseSelect" action="{!c.onProductWarehouseSelect}"/>
+
+    <aura:if isTrue="{!not(empty(v.productResults))}">
+        <lightning:card title="Results:">
+
+
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Product Name">Product Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Warehouse City">Warehouse City</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Quantity">Quantity</div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <aura:iteration items="{!v.productResults}" var="warehouse">
+                    <c:EP_ResultsSearchTableElement warehouse="{!warehouse}" selected="{!warehouse.ProductWarehouseId == v.selectedProductWarehouseId ? true : false}"/>
+                </aura:iteration>
+                </tbody>
+            </table>
+        </lightning:card>
+    </aura:if>
+    <lightning:spinner aura:id="spinner" variant="brand" size="medium" class="slds-hide"/>
+</aura:component>

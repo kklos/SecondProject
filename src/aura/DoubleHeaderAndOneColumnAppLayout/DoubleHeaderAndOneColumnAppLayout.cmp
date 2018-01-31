@@ -1,0 +1,28 @@
+<!--
+ - Created by klaud on 27.01.2018.
+ -->
+
+<aura:component implements="lightning:appHomeTemplate" description="DoubleHeaderAndOneColumnAppLayout">
+        <aura:attribute name="main" type="Aura.Component[]" />
+        <aura:attribute name="left" type="Aura.Component[]" />
+        <aura:attribute name="right" type="Aura.Component[]" />
+
+
+        <div>
+            <lightning:layout horizontalAlign="spread">
+                <lightning:layoutItem flexibility="grow">
+                        {!v.left}
+                </lightning:layoutItem>
+                <lightning:layoutItem size="{! $Browser.isDesktop ? '6' : '8' }"
+                                      class="slds-m-left_small" >
+                        {!v.right}
+                </lightning:layoutItem>
+            </lightning:layout>
+            <lightning:layout horizontalAlign="spread">
+                <lightning:layoutItem flexibility="grow"
+                                      class="slds-m-top--small">
+                        {!v.main}
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+</aura:component>

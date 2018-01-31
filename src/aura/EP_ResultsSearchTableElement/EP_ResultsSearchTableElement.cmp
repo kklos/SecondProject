@@ -1,0 +1,25 @@
+<!--
+ - Created by klaud on 29.01.2018.
+ -->
+
+<aura:component description="EP_ResultsSearchTableElement">
+    <ltng:require scripts="{!$Resource.jQuery}"/>
+    <aura:attribute name="warehouse" type="Object"/>
+    <aura:attribute name="selected" type="Boolean" />
+    <aura:attribute name="previousValueOfTableOneRowEvent" type="Object" />
+    <aura:registerEvent name="productWarehouseSelected" type="c:EP_ProductWarehouseSelect"/>
+    <aura:registerEvent name="warehouseSelected" type="c:EP_WarehouseLocatorMarker"/>
+
+    <tr onclick="{!c.showPointerInMap }" aura:id="tableOneRow" class="{!v.selected? 'slds-is-selected':''}">
+        <th scope="row">
+            <div class="slds-truncate" title="{!v.warehouse.Name}">{!v.warehouse.Name}</div>
+        </th>
+        <td>
+            <div class="slds-truncate" title="{!v.warehouse.WarehouseCity}">{!v.warehouse.WarehouseCity}</div>
+        </td>
+        <td>
+            <div class="slds-truncate" title="{!v.warehouse.Quantity}">{!v.warehouse.Quantity}</div>
+        </td>
+    </tr>
+
+</aura:component>

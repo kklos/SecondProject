@@ -1,0 +1,49 @@
+<!--
+ - Created by klaud on 27.01.2018.
+ -->
+
+<aura:component description="EP_ProductSearchForm" implements="flexipage:availableForAllPageTypes">
+
+
+    <aura:registerEvent name="productSearchFormQueryEvent" type="c:EP_ProductSearchFormQuery"/>
+
+        <lightning:card title="Search products:">
+
+            <div class="demo-only" style="height:22rem">
+                <div class="slds-form slds-form_compound slds-m-around--x-large">
+                    <fieldset class="slds-form-element">
+                        <div class="slds-form-element__group">
+                            <div class="slds-form-element__row">
+                                <div class="slds-form-element slds-size_1-of-2">
+                                    <label class="slds-form-element__label" for="input-01">Name</label>
+                                    <lightning:input aura:id="productName" name="productName" label=""/>
+                                </div>
+                                <div class="slds-form-element slds-size_1-of-2">
+                                    <label class="slds-form-element__label" for="input-02">Code</label>
+                                    <lightning:input aura:id="productCode" name="productCode" label=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element__group">
+                            <div class="slds-form-element__row">
+                                <div class="slds-form-element slds-size_1-of-2">
+                                    <label class="slds-form-element__label" for="input-01">Warehouse City</label>
+                                    <lightning:input aura:id="productWarehouseCity" name="productWarehouseCity" label=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="slds-button-group slds-align_absolute-center slds-m-top--large" role="group">
+                        <button class="slds-button slds-button_neutral" onclick="{!c.searchProductsSetEvent}">Search</button>
+                        <button class="slds-button slds-button_neutral" onclick="{!c.clearProductsSetEvent}">Clear</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        </lightning:card>
+</aura:component>

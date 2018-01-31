@@ -1,0 +1,153 @@
+<!--
+ - Created by klaud on 25.01.2018.
+-->
+
+<apex:page controller="EP_ContactFormController" showHeader="false" id="EP_ContactForm">
+    <apex:includeScript value="{! $Resource.jQuery }"/>
+    <apex:slds/>
+    <style>
+        body .bPageBlock{
+            border-top: 4px solid #fdfdfd;
+        }
+
+
+
+    </style>
+
+    <div class="slds-page-header">
+        <div class="slds-grid">
+            <div class="slds-col slds-has-flexi-truncate">
+                <div class="slds-media slds-no-space slds-grow">
+                    <div class="slds-media__figure">
+                        <img style="width: 60px; height:60px" src="{!$Resource.EP_Logo}"/>
+                    </div>
+                    <div class="slds-media__body">
+                        <p class="slds-text-title--caps slds-line-height--reset">Contact</p>
+                        <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate"
+                            title="Contact with us">Contact with us</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <apex:form id="formId">
+        <apex:outputPanel styleClass="myCustomMessage">
+            <apex:pageMessages escape="false" id="mainFormMessages"></apex:pageMessages>
+        </apex:outputPanel>
+        <apex:pageBlock rendered="{!IF(thanks == '', true, false)}">
+
+        <div class="demo-only">
+            <h3 class="slds-section-title--divider">Do you have a question?</h3>
+            <div class="slds-form slds-form_compound slds-p-around--medium">
+
+                <fieldset class="slds-form-element">
+
+
+                    <div class="slds-form-element__group">
+                        <div class="slds-form-element__row">
+
+                            <div class="slds-form-element slds-size_1-of-3">
+                                <label class="slds-form-element__label" for="input-04">{!$Label.FirstName}</label>
+                                <apex:inputText styleClass="slds-input" required="false"
+                                                value="{! contactFormInformation.FirstName }"/>
+                            </div>
+
+
+                            <div class="slds-form-element slds-size_1-of-3">
+                                <label class="slds-form-element__label" for="input-05">{!$Label.LastName}</label>
+                                <apex:inputText styleClass="slds-input" required="false"
+                                                value="{! contactFormInformation.LastName }"/>
+                            </div>
+
+
+                            <div class="slds-form-element slds-size_1-of-3">
+                                <label class="slds-form-element__label" for="input-04">{!$Label.Email}</label>
+                                <apex:inputText styleClass="slds-input" required="false"
+                                                value="{! contactFormInformation.Email }"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element__row">
+                            <div class="slds-form-element slds-size_1-of-3">
+                                <label class="slds-form-element__label" for="input-05">Bussines Phone</label>
+                                <apex:inputText styleClass="slds-input" required="true"
+                                                value="{! contactFormInformation.BusinessPhone }"/>
+                            </div>
+
+                            <div class="slds-form-element slds-size_1-of-3">
+                                <label class="slds-form-element__label" for="input-05">Company</label>
+                                <apex:inputText styleClass="slds-input" required="true"
+                                                value="{! contactFormInformation.Company }"/>
+                            </div>
+
+                        </div>
+                        <div class="slds-form-element__row">
+                            <div class="slds-form-element slds-size_1-of-1">
+                                <label class="slds-form-element__label" for="input-05">Title</label>
+                                <apex:inputText styleClass="slds-input" required="true"
+                                                value="{! contactFormInformation.Subject }"/>
+                            </div>
+                        </div>
+
+                        <div class="slds-form-element__row">
+                            <div class="slds-form-element slds-size_1-of-1">
+                                <label class="slds-form-element__label" for="input-05">Subject</label>
+                                <apex:inputTextarea styleClass="slds-input" required="true"
+                                                    value="{! contactFormInformation.Description }"/>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="demo-only">
+            <div class="slds-form slds-form_compound  slds-p-around--large">
+
+                <fieldset class="slds-form-element ">
+
+                    <div class="slds-button-group" role="group">
+
+                        <div class="slds-align_absolute-center">
+                            <apex:commandButton styleClass="slds-button slds-button--neutral"
+                                                value="Submit" action="{!submit}"
+                                                reRender="formId" status="pageStatus"/>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        </apex:pageBlock>
+        <apex:pageBlock rendered="{!IF(thanks != '', true, false)}">
+            {!thanks}
+        </apex:pageBlock>
+
+
+
+    </apex:form>
+
+    <script type='text/javascript'
+            src='https://c.la1-c2-frf.salesforceliveagent.com/content/g/js/41.0/deployment.js'></script>
+    <script type='text/javascript'>
+            liveagent.init('https://d.la1-c2-frf.salesforceliveagent.com/chat', '5720O000000LIyT', '00D0O000000swqi');
+
+        </script>
+
+    <a style="position: fixed !important; top: 65%; right: 0;     transform: rotate(-90deg);" id="liveagent_button_online_5730O000000LJ33" class="slds-button slds-button_brand"
+            onclick="liveagent.startChat('5730O000000LJ33')" immediate="true"
+            html-formnovalidate="formnovalidate">Chat with us
+    </a>
+    <a style="position: fixed !important; top: 65%; right: 0; transform: rotate(-90deg);" id="liveagent_button_offline_5730O000000LJ33" class="slds-button slds-button_brand" immediate="true"
+            html-formnovalidate="formnovalidate">Chat Offline</a>
+
+    <script type="text/javascript">
+            if (!window._laq) { window._laq = []; }
+            window._laq.push(function(){liveagent.showWhenOnline('5730O000000LJ33', document.getElementById('liveagent_button_online_5730O000000LJ33'));
+            liveagent.showWhenOffline('5730O000000LJ33', document.getElementById('liveagent_button_offline_5730O000000LJ33'));
+            });
+        </script>
+
+</apex:page>
