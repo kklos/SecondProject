@@ -26,7 +26,7 @@
     <aura:handler event="c:EP_WarehouseLocatorMarker" action="{!c.setOneMarker}"/>
 
 <lightning:card title="">
-        <div style="height=100%;" class="slds-p-right_xx-large slds-p-left_xx-large">
+        <div style="width=100%;" class="slds-p-right_xx-large slds-p-left_xx-large">
 
             <div class="slds-align_absolute-center slds-p-bottom_small">
                 <lightning:button disabled="{!v.buttonDisabled}" variant="brand" label="Show all searched warehouses" onclick="{!c.clearSelectedMarkers}"/>

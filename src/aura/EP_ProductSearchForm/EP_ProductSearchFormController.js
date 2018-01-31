@@ -24,6 +24,12 @@
       "code": productCodeValue
     });
     myEvent.fire();
+
+
+     var myEventWarehouseProductSelected = $A.get("e.c:EP_ProductWarehouseSelect");
+          console.log(myEventWarehouseProductSelected);
+          myEventWarehouseProductSelected.setParams({"productWarehouseId": 'xyz'});
+           myEventWarehouseProductSelected.fire();
   },
 
   clearProductsSetEvent: function(cmp, event, helper) {
@@ -34,6 +40,11 @@
       "code": ''
     });
     myEvent.fire();
+
+     var myEventWarehouseProductSelected = $A.get("e.c:EP_ProductWarehouseSelect");
+          console.log(myEventWarehouseProductSelected);
+          myEventWarehouseProductSelected.setParams({"productWarehouseId": 'xyz'});
+           myEventWarehouseProductSelected.fire();
 
     cmp.find("productWarehouseCity").set("v.value", '');
     cmp.find("productName").set("v.value", '');
